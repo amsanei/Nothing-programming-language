@@ -16,22 +16,27 @@
     <body>
         <header>
             <div class="hero">
-                <div>Nothing</div>
-                <div>Programing language</div>
+                <div class="title">Nothing</div>
+                <div class="sub-title">Programing language</div>
             </div>
         </header>
         <main>
             <div class="title">Nothing's online compiler</div>
             <form id="form">
-                <textarea id="source-code" cols="30" rows="10"></textarea>
+                <textarea
+                    placeholder="Write nothing code here!"
+                    id="source-code"
+                    cols="30"
+                    rows="10"
+                ></textarea>
                 <!-- <input type="file" onchange="readFile()" /> -->
-                <input type="submit" value="compile" />
+                <input class="btn" type="submit" value="compile" />
             </form>
             <div class="result">
                 <div class="title">Compile result</div>
-                <div class="empty">
+                <!-- <div class="empty">
                     Please write or upload a nothing source code!
-                </div>
+                </div> -->
                 <table>
                     <thead>
                         <tr>
