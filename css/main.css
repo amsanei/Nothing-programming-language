@@ -7,3 +7,11 @@
 body {
     font-family: Inter;
 }
+
+td.green {
+    color: green;
+}
+
+td.red {
+    color: red;
+}

@@ -35,7 +35,7 @@ function compile(e) {
         words.forEach((word) => {
             if (word) {
                 if (keyWords.includes(word)) {
-                    addToTable(word, "ACCEPTED! keyword");
+                    addToTable(word, "ACCEPTED", "GREEN");
                 } else {
                     isID(word);
                 }
@@ -56,14 +56,14 @@ function compile(e) {
                     ) {
                         state = 2;
                     } else {
-                        addToTable(word, "REAJECTEAD!");
+                        addToTable(word, "REJECTED!", "RED");
                         return;
                     }
                     break;
                 case 2:
                     i++;
                     if (i >= word.length) {
-                        addToTable(word, "ACCEPTED!");
+                        addToTable(word, "ACCEPTED!", "GREEN");
                         return;
                     } else if (
                         (word[i] >= "a" && word[i] <= "z") ||
@@ -73,7 +73,7 @@ function compile(e) {
                     ) {
                         state = 2;
                     } else {
-                        addToTable(word, "REAJECTEAD!");
+                        addToTable(word, "REJECTED!", "RED");
                         return;
                     }
                     break;
@@ -82,10 +82,13 @@ function compile(e) {
     }
 }
 
-function addToTable(text1, text2) {
+function addToTable(text1, text2, style) {
     const tr = document.createElement("tr");
     const td1 = document.createElement("td");
     const td2 = document.createElement("td");
+
+    if (style === "RED") td2.className = "red";
+    else if (style === "GREEN") td2.className = "green";
 
     tr.appendChild(td1);
     tr.appendChild(td2);
