@@ -22,9 +22,10 @@
         </header>
         <main>
             <div class="title">Nothing's online compiler</div>
-            <form action="">
-                <textarea cols="30" rows="10"></textarea>
-                <input type="file" />
+            <form id="form">
+                <textarea id="source-code" cols="30" rows="10"></textarea>
+                <!-- <input type="file" onchange="readFile()" /> -->
+                <input type="submit" value="compile" />
             </form>
             <div class="result">
                 <div class="title">Compile result</div>
@@ -38,9 +39,10 @@
                             <th>State</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="table-body"></tbody>
                 </table>
             </div>
         </main>
     </body>
+    <script src="js/main.js"></script>
 </html>
