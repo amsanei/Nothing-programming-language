@@ -1,6 +1,8 @@
 const content = document.querySelector("#source-code");
 const form = document.querySelector("#form");
-const table = document.querySelector("#table-body");
+const table = document.querySelector("#table");
+const tableBody = document.querySelector("#table-body");
+const emptyMsg = document.querySelector("#empty");
 
 form.addEventListener("submit", compile);
 
@@ -27,6 +29,9 @@ const keyWords = [
 
 function compile(e) {
     e.preventDefault();
+    table.className = "";
+    tableBody.innerHTML = "";
+    emptyMsg.className = "hide";
     const code = content.value;
     const lines = code.split("\n");
 
@@ -96,5 +101,5 @@ function addToTable(text1, text2, style) {
     td1.appendChild(document.createTextNode(text1));
     td2.appendChild(document.createTextNode(text2));
 
-    table.appendChild(tr);
+    tableBody.appendChild(tr);
 }

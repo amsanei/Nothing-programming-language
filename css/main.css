@@ -109,3 +109,7 @@ td.green {
 td.red {
     color: red;
 }
+
+.hide {
+    display: none;
+}

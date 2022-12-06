@@ -27,18 +27,16 @@
                     <textarea
                         placeholder="Write nothing code here!"
                         id="source-code"
-                        cols="30"
                         rows="10"
+                        required
                     ></textarea>
                     <!-- <input type="file" onchange="readFile()" /> -->
                     <input class="btn" type="submit" value="compile" />
                 </form>
                 <div class="result">
                     <div class="title">Compile result</div>
-                    <!-- <div class="empty">
-                        Please write or upload a nothing source code!
-                    </div> -->
-                    <table>
+                    <div id="empty">Please write some nothing source code!</div>
+                    <table class="hide" id="table">
                         <thead>
                             <tr>
                                 <th>Word</th>
