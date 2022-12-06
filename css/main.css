@@ -15,27 +15,20 @@ body {
     padding: 20px 0 80px;
 }
 
-@media only screen and (min-width: 900px) {
-    .container {
-        width: 70%;
-    }
-}
-
 .hero {
-    height: 40vh;
     font-weight: 900;
-    margin-block: 20px;
+    margin: 20px 0 50px;
     color: #1c1e21;
 }
 
 .hero .title {
     letter-spacing: 10px;
-    font-size: 98px;
+    font-size: 48px;
 }
 
 .hero .sub-title {
     letter-spacing: 2px;
-    font-size: 38px;
+    font-size: 22px;
 }
 
 textarea {
@@ -112,4 +105,18 @@ td.red {
 
 .hide {
     display: none;
+}
+
+@media only screen and (min-width: 900px) {
+    .container {
+        width: 70%;
+    }
+
+    .hero .title {
+        font-size: 98px;
+    }
+
+    .hero .sub-title {
+        font-size: 38px;
+    }
 }
