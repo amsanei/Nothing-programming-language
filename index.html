@@ -14,40 +14,42 @@
         <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
-        <header>
-            <div class="hero">
-                <div class="title">Nothing</div>
-                <div class="sub-title">Programing language</div>
-            </div>
-        </header>
-        <main>
-            <div class="title">Nothing's online compiler</div>
-            <form id="form">
-                <textarea
-                    placeholder="Write nothing code here!"
-                    id="source-code"
-                    cols="30"
-                    rows="10"
-                ></textarea>
-                <!-- <input type="file" onchange="readFile()" /> -->
-                <input class="btn" type="submit" value="compile" />
-            </form>
-            <div class="result">
-                <div class="title">Compile result</div>
-                <!-- <div class="empty">
-                    Please write or upload a nothing source code!
-                </div> -->
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Word</th>
-                            <th>State</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-body"></tbody>
-                </table>
-            </div>
-        </main>
+        <div class="container">
+            <header>
+                <div class="hero">
+                    <div class="title">Nothing</div>
+                    <div class="sub-title">Programing language</div>
+                </div>
+            </header>
+            <main>
+                <div class="title">Nothing's online compiler</div>
+                <form id="form">
+                    <textarea
+                        placeholder="Write nothing code here!"
+                        id="source-code"
+                        cols="30"
+                        rows="10"
+                    ></textarea>
+                    <!-- <input type="file" onchange="readFile()" /> -->
+                    <input class="btn" type="submit" value="compile" />
+                </form>
+                <div class="result">
+                    <div class="title">Compile result</div>
+                    <!-- <div class="empty">
+                        Please write or upload a nothing source code!
+                    </div> -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Word</th>
+                                <th>State</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
     </body>
     <script src="js/main.js"></script>
 </html>
