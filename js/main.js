@@ -1,6 +1,7 @@
 import isKeyword from "./isKeyword.js";
 import isId from "./isId.js";
 import isSymbol from "./isSymbol.js";
+import isOperator from "./isOperator.js";
 
 const content = document.querySelector("#source-code");
 const form = document.querySelector("#form");
@@ -27,6 +28,7 @@ function compile(e) {
                 let keywordToken = isKeyword(word);
                 let idToken = isId(word);
                 let symbolToken = isSymbol(word);
+                let operatorToken = isOperator(word);
                 if (keywordToken) {
                     addToTable(word, "ACCEPTED", "GREEN", keywordToken);
                 } else if (idToken) {
@@ -34,6 +36,8 @@ function compile(e) {
                     addToTable(word, "ACCEPTED", "GREEN", idToken);
                 } else if (symbolToken) {
                     addToTable(word, "ACCEPTED", "GREEN", symbolToken);
+                } else if (operatorToken) {
+                    addToTable(word, "ACCEPTED", "GREEN", operatorToken);
                 } else {
                     addToTable(word, "REJECTED!", "RED", "----");
                 }
