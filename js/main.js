@@ -3,6 +3,7 @@ import isId from "./isId.js";
 import isSymbol from "./isSymbol.js";
 import isOperator from "./isOperator.js";
 import isData from "./isData.js";
+import isComment from "./isComment.js";
 
 const content = document.querySelector("#source-code");
 const form = document.querySelector("#form");
@@ -42,6 +43,8 @@ function compile(e) {
                     addToTable(word, "ACCEPTED", "GREEN", symbolToken);
                 } else if (operatorToken) {
                     addToTable(word, "ACCEPTED", "GREEN", operatorToken);
+                } else if (isComment(word)) {
+                    return;
                 } else {
                     addToTable(word, "REJECTED!", "RED", "----");
                 }
