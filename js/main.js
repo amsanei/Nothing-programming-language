@@ -2,6 +2,7 @@ import isKeyword from "./isKeyword.js";
 import isId from "./isId.js";
 import isSymbol from "./isSymbol.js";
 import isOperator from "./isOperator.js";
+import isData from "./isData.js";
 
 const content = document.querySelector("#source-code");
 const form = document.querySelector("#form");
@@ -29,8 +30,11 @@ function compile(e) {
                 let idToken = isId(word);
                 let symbolToken = isSymbol(word);
                 let operatorToken = isOperator(word);
+                let dataToken = isData(word);
                 if (keywordToken) {
                     addToTable(word, "ACCEPTED", "GREEN", keywordToken);
+                } else if (dataToken) {
+                    addToTable(word, "ACCEPTED", "GREEN", dataToken);
                 } else if (idToken) {
                     idToken += `_${++numberOfIdes}`;
                     addToTable(word, "ACCEPTED", "GREEN", idToken);
