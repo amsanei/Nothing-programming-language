@@ -1,3 +1,5 @@
+import isKeyword from "./isKeyword.js";
+
 const content = document.querySelector("#source-code");
 const form = document.querySelector("#form");
 const table = document.querySelector("#table");
@@ -5,27 +7,6 @@ const tableBody = document.querySelector("#table-body");
 const emptyMsg = document.querySelector("#empty");
 
 form.addEventListener("submit", compile);
-
-const keyWords = [
-    "function",
-    "if",
-    "otherwise",
-    "else",
-    "character",
-    "string",
-    "boolean",
-    "float",
-    "loop",
-    "from",
-    "to",
-    "while",
-    "variable",
-    "integer",
-    "needs",
-    "till",
-    "send",
-    "is",
-];
 
 function compile(e) {
     e.preventDefault();
@@ -39,7 +20,8 @@ function compile(e) {
         let words = line.split(" ");
         words.forEach((word) => {
             if (word) {
-                if (keyWords.includes(word)) {
+                let token = isKeyword(word);
+                if (token) {
                     addToTable(word, "ACCEPTED", "GREEN");
                 } else {
                     isID(word);
@@ -49,7 +31,7 @@ function compile(e) {
     });
 
     function isID(word) {
-        state = 1;
+        let state = 1;
         let i = 0;
         while (1) {
             switch (state) {
