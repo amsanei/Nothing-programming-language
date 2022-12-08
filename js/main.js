@@ -15,9 +15,7 @@ form.addEventListener("submit", compile);
 
 function compile(e) {
     e.preventDefault();
-    table.className = "";
     tableBody.innerHTML = "";
-    emptyMsg.className = "hide";
     const code = content.value;
     const lines = code.split("\n");
 
@@ -54,6 +52,9 @@ function compile(e) {
 }
 
 function addToTable(text1, text2, style, token) {
+    emptyMsg.className = "hide";
+    table.className = "";
+
     const tr = document.createElement("tr");
     const td1 = document.createElement("td");
     const td2 = document.createElement("td");
