@@ -1,4 +1,5 @@
 import isKeyword from "./isKeyword.js";
+import isId from "./isId.js";
 
 const content = document.querySelector("#source-code");
 const form = document.querySelector("#form");
@@ -16,57 +17,25 @@ function compile(e) {
     const code = content.value;
     const lines = code.split("\n");
 
+    let numberOfIdes = 0;
+
     lines.forEach((line) => {
         let words = line.split(" ");
         words.forEach((word) => {
             if (word) {
-                let token = isKeyword(word);
-                if (token) {
+                let keywordToken = isKeyword(word);
+                let idToken = isId(word);
+                if (keywordToken) {
+                    addToTable(word, "ACCEPTED", "GREEN");
+                } else if (idToken) {
+                    idToken += `_${++numberOfIdes}`;
                     addToTable(word, "ACCEPTED", "GREEN");
                 } else {
-                    isID(word);
+                    addToTable(word, "REJECTED!", "RED");
                 }
             }
         });
     });
-
-    function isID(word) {
-        let state = 1;
-        let i = 0;
-        while (1) {
-            switch (state) {
-                case 1:
-                    if (
-                        (word[i] >= "a" && word[i] <= "z") ||
-                        (word[i] >= "A" && word[i] <= "Z") ||
-                        word[i] === "_"
-                    ) {
-                        state = 2;
-                    } else {
-                        addToTable(word, "REJECTED!", "RED");
-                        return;
-                    }
-                    break;
-                case 2:
-                    i++;
-                    if (i >= word.length) {
-                        addToTable(word, "ACCEPTED!", "GREEN");
-                        return;
-                    } else if (
-                        (word[i] >= "a" && word[i] <= "z") ||
-                        (word[i] >= "A" && word[i] <= "Z") ||
-                        (word[i] >= 0 && word[i] <= 9) ||
-                        word[i] === "_"
-                    ) {
-                        state = 2;
-                    } else {
-                        addToTable(word, "REJECTED!", "RED");
-                        return;
-                    }
-                    break;
-            }
-        }
-    }
 }
 
 function addToTable(text1, text2, style) {
