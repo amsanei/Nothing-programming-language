@@ -26,31 +26,34 @@ function compile(e) {
                 let keywordToken = isKeyword(word);
                 let idToken = isId(word);
                 if (keywordToken) {
-                    addToTable(word, "ACCEPTED", "GREEN");
+                    addToTable(word, "ACCEPTED", "GREEN", keywordToken);
                 } else if (idToken) {
                     idToken += `_${++numberOfIdes}`;
-                    addToTable(word, "ACCEPTED", "GREEN");
+                    addToTable(word, "ACCEPTED", "GREEN", idToken);
                 } else {
-                    addToTable(word, "REJECTED!", "RED");
+                    addToTable(word, "REJECTED!", "RED", "----");
                 }
             }
         });
     });
 }
 
-function addToTable(text1, text2, style) {
+function addToTable(text1, text2, style, token) {
     const tr = document.createElement("tr");
     const td1 = document.createElement("td");
     const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
 
     if (style === "RED") td2.className = "red";
     else if (style === "GREEN") td2.className = "green";
 
     tr.appendChild(td1);
     tr.appendChild(td2);
+    tr.appendChild(td3);
 
     td1.appendChild(document.createTextNode(text1));
     td2.appendChild(document.createTextNode(text2));
+    td3.appendChild(document.createTextNode(token));
 
     tableBody.appendChild(tr);
 }
