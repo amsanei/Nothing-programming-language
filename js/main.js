@@ -51,7 +51,7 @@ function compile(e) {
             }
         });
     });
-    renderSymbolTable(symbolTable);
+    if (symbolTable.length > 0) renderSymbolTable(symbolTable);
 }
 
 function addToTable(text1, text2, style, token) {
@@ -83,6 +83,8 @@ function renderSymbolTable(data) {
     table.className = "";
     emptyMsg.className = "hide";
     const tableBody = document.querySelector("#symbolTable-body");
+    // Remove old data
+    tableBody.innerHTML = "";
     // Remove Duplicates from data
     data = [...new Set(data)];
     data.forEach((element) => {
