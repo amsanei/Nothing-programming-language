@@ -9,6 +9,7 @@ function isKeyword(word) {
     else if (isFloat(word)) token = "TOKEN_FLOAT";
     else if (isWhile(word)) token = "TOKEN_WHILE";
     else if (isFrom(word)) token = "TOKEN_FROM";
+    else if (isCall(word)) token = "TOKEN_CALL";
     else if (isInteger(word)) token = "TOKEN_INTEGER";
     else if (isString(word)) token = "TOKEN_STRING";
     else if (isFunction(word)) token = "TOKEN_FUNCTION";
@@ -255,6 +256,35 @@ function isFrom(word) {
             case 4:
                 i++;
                 if (word[i] === "m") state = 5;
+                else return false;
+            case 5:
+                i++;
+                if (word[i] === undefined) return true;
+                else return false;
+        }
+    }
+}
+
+function isCall(word) {
+    let state = 1;
+    let i = 0;
+    while (1) {
+        switch (state) {
+            case 1:
+                if (word[i] === "c") state = 2;
+                else return false;
+                break;
+            case 2:
+                i++;
+                if (word[i] === "a") state = 3;
+                else return false;
+            case 3:
+                i++;
+                if (word[i] === "l") state = 4;
+                else return false;
+            case 4:
+                i++;
+                if (word[i] === "l") state = 5;
                 else return false;
             case 5:
                 i++;
