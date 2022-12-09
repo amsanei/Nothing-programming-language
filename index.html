@@ -34,7 +34,17 @@
                         id="source-code"
                         rows="10"
                         required
-                    ></textarea>
+                    >
+                    variable number1
+                    variable number2
+                    
+                    function getSum needs a , b {
+                    call print send a + b
+                    }
+                    
+                    call getSum send ( number1 , number2 )
+                </textarea
+                    >
                     <input class="btn" type="submit" value="compile" />
                 </form>
                 <div class="result">
