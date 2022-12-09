@@ -20,6 +20,7 @@ function compile(e) {
     const lines = code.split("\n");
 
     let numberOfIdes = 0;
+    let symbolTable = [];
 
     lines.forEach((line) => {
         let words = line.split(" ");
@@ -36,6 +37,7 @@ function compile(e) {
                     addToTable(word, "ACCEPTED", "GREEN", dataToken);
                 } else if (idToken) {
                     idToken += `_${++numberOfIdes}`;
+                    symbolTable.push(word);
                     addToTable(word, "ACCEPTED", "GREEN", idToken);
                 } else if (symbolToken) {
                     addToTable(word, "ACCEPTED", "GREEN", symbolToken);
@@ -49,6 +51,7 @@ function compile(e) {
             }
         });
     });
+    renderSymbolTable(symbolTable);
 }
 
 function addToTable(text1, text2, style, token) {
@@ -72,4 +75,24 @@ function addToTable(text1, text2, style, token) {
     td3.appendChild(document.createTextNode(token));
 
     tableBody.appendChild(tr);
+}
+
+function renderSymbolTable(data) {
+    const table = document.querySelector("#symbolTable");
+    const emptyMsg = document.querySelector("#empty2");
+    table.className = "";
+    emptyMsg.className = "hide";
+    const tableBody = document.querySelector("#symbolTable-body");
+    // Remove Duplicates from data
+    data = [...new Set(data)];
+    data.forEach((element) => {
+        const tr = document.createElement("tr");
+        const index = document.createElement("td");
+        const id = document.createElement("td");
+        index.appendChild(document.createTextNode(data.indexOf(element) + 1));
+        id.appendChild(document.createTextNode(element));
+        tr.appendChild(index);
+        tr.appendChild(id);
+        tableBody.appendChild(tr);
+    });
 }
