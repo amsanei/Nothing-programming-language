@@ -35,14 +35,14 @@ function compile(e) {
                     addToTable(word, "ACCEPTED", "GREEN", keywordToken);
                 } else if (dataToken) {
                     addToTable(word, "ACCEPTED", "GREEN", dataToken);
+                } else if (operatorToken) {
+                    addToTable(word, "ACCEPTED", "GREEN", operatorToken);
                 } else if (idToken) {
                     idToken += `_${++numberOfIdes}`;
                     symbolTable.push(word);
                     addToTable(word, "ACCEPTED", "GREEN", idToken);
                 } else if (symbolToken) {
                     addToTable(word, "ACCEPTED", "GREEN", symbolToken);
-                } else if (operatorToken) {
-                    addToTable(word, "ACCEPTED", "GREEN", operatorToken);
                 } else if (isComment(word)) {
                     return;
                 } else {
