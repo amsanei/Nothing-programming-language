@@ -69,21 +69,17 @@ function isVariable(word) {
                 else return false;
             case 6:
                 i++;
-                if (word[i] === "a") state = 7;
+                if (word[i] === "b") state = 7;
                 else return false;
             case 7:
                 i++;
-                if (word[i] === "b") state = 8;
+                if (word[i] === "l") state = 8;
                 else return false;
             case 8:
                 i++;
-                if (word[i] === "l") state = 9;
+                if (word[i] === "e") state = 9;
                 else return false;
             case 9:
-                i++;
-                if (word[i] === "e") state = 10;
-                else return false;
-            case 10:
                 i++;
                 if (word[i] === undefined) return true;
                 else return false;
