@@ -38,8 +38,12 @@ function compile(e) {
                 } else if (operatorToken) {
                     addToTable(word, "ACCEPTED", "GREEN", operatorToken);
                 } else if (idToken) {
-                    idToken += `_${++numberOfIdes}`;
-                    symbolTable.push(word);
+                    if (symbolTable.includes(word))
+                        idToken += `_${symbolTable.indexOf(word) + 1}`;
+                    else {
+                        idToken += `_${++numberOfIdes}`;
+                        symbolTable.push(word);
+                    }
                     addToTable(word, "ACCEPTED", "GREEN", idToken);
                 } else if (symbolToken) {
                     addToTable(word, "ACCEPTED", "GREEN", symbolToken);
