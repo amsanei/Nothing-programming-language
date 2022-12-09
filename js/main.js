@@ -46,7 +46,7 @@ function compile(e) {
                 } else if (isComment(word)) {
                     return;
                 } else {
-                    addToTable(word, "REJECTED!", "RED", "----");
+                    addToTable(word, "REJECTED!", "RED", "🤷🏻‍♂️");
                 }
             }
         });
