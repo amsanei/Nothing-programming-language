@@ -3,6 +3,12 @@ export default function isOperator(lexeme) {
     else if (lexeme === "-") return "TOKEN_MINUS_OPERATOR";
     else if (lexeme === "*") return "TOKEN_MINUS_OPERATOR";
     else if (lexeme === "/") return "TOKEN_DIVIDED_OPERATOR";
+    else if (lexeme === "==") return "TOKEN_EQUALS_OPERATOR";
+    else if (lexeme === "!=") return "TOKEN_NOTEQUALS_OPERATOR";
+    else if (lexeme === "<") return "TOKEN_SMALLER_OPERATOR";
+    else if (lexeme === "<=") return "TOKEN_SMALLER_OR_EQUALS_OPERATOR";
+    else if (lexeme === ">") return "TOKEN_GREATER_OPERATOR";
+    else if (lexeme === ">=") return "TOKEN_GREATER_OR_EQUALS_OPERATOR";
     else if (isAssign(lexeme)) return "TOKEN_ASSIGN_OPERATOR";
 }
 

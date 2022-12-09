@@ -18,7 +18,6 @@ function isKeyword(word) {
     else if (isNeeds(word)) token = "TOKEN_NEEDS";
     else if (isSend(word)) token = "TOKEN_SEND";
     else if (isVariable(word)) token = "TOKEN_VARIABLE";
-    else if (isBoolean(word)) token = "TOKEN_BOOLEAN";
     return token;
 }
 
