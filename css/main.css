@@ -50,7 +50,8 @@ header ul a.active {
     font-weight: bold;
 }
 
-textarea {
+textarea,
+.logs-content {
     padding: 10px 15px;
     line-height: 2;
     font-size: 18px;
@@ -90,6 +91,38 @@ textarea:focus {
     cursor: pointer;
 }
 
+.logs .title {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.logs-content {
+    text-align: left;
+}
+
+.logs-content .error::before {
+    content: "⚠️";
+    margin-right: 5px;
+}
+
+.logs-content .error {
+    color: #ff6060;
+}
+
+.logs-content .success::before {
+    content: "🚀";
+    margin-right: 5px;
+}
+
+.logs-content .success {
+    color: rgb(0, 255, 0);
+}
+
+#empty,
+#logs-empty {
+    color: gray;
+}
 .result {
     margin-top: 50px;
 }
