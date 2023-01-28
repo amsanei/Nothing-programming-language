@@ -1,7 +1,7 @@
 export default function isOperator(lexeme) {
     if (lexeme === "+") return "TOKEN_PLUS_OPERATOR";
     else if (lexeme === "-") return "TOKEN_MINUS_OPERATOR";
-    else if (lexeme === "*") return "TOKEN_MINUS_OPERATOR";
+    else if (lexeme === "*") return "TOKEN_TIMES_OPERATOR";
     else if (lexeme === "/") return "TOKEN_DIVIDED_OPERATOR";
     else if (lexeme === "==") return "TOKEN_EQUALS_OPERATOR";
     else if (lexeme === "!=") return "TOKEN_NOTEQUALS_OPERATOR";
