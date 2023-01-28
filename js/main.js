@@ -10,6 +10,7 @@ const form = document.querySelector("#form");
 const table = document.querySelector("#table");
 const tableBody = document.querySelector("#table-body");
 const emptyMsg = document.querySelector("#empty");
+const logs = document.querySelector("#logs");
 
 form.addEventListener("submit", compile);
 
@@ -22,7 +23,10 @@ function compile(e) {
     let numberOfIdes = 0;
     let symbolTable = [];
 
-    lines.forEach((line) => {
+    let tokens = [];
+
+    lines.forEach((line, index) => {
+        index += 1;
         let words = line.split(" ");
         words.forEach((word) => {
             if (word) {
@@ -33,11 +37,15 @@ function compile(e) {
                 let dataToken = isData(word);
                 if (keywordToken) {
                     addToTable(word, "ACCEPTED", "GREEN", keywordToken);
+                    tokens.push((keywordToken += `_${index}`));
                 } else if (dataToken) {
                     addToTable(word, "ACCEPTED", "GREEN", dataToken);
+                    tokens.push("TOKEN_DATA" + `_${index}`);
                 } else if (operatorToken) {
                     addToTable(word, "ACCEPTED", "GREEN", operatorToken);
+                    tokens.push((operatorToken += `_${index}`));
                 } else if (idToken) {
+                    tokens.push((idToken += `_${index}`));
                     if (symbolTable.includes(word))
                         idToken += `_${symbolTable.indexOf(word) + 1}`;
                     else {
@@ -47,6 +55,7 @@ function compile(e) {
                     addToTable(word, "ACCEPTED", "GREEN", idToken);
                 } else if (symbolToken) {
                     addToTable(word, "ACCEPTED", "GREEN", symbolToken);
+                    tokens.push((symbolToken += `_${index}`));
                 } else if (isComment(word)) {
                     return;
                 } else {
