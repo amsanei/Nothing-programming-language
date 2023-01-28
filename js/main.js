@@ -1,9 +1,9 @@
-import isKeyword from "./isKeyword.js";
-import isId from "./isId.js";
-import isSymbol from "./isSymbol.js";
-import isOperator from "./isOperator.js";
-import isData from "./isData.js";
-import isComment from "./isComment.js";
+import isKeyword from "./LexicalAnalyzer/isKeyword.js";
+import isId from "./LexicalAnalyzer/isId.js";
+import isSymbol from "./LexicalAnalyzer/isSymbol.js";
+import isOperator from "./LexicalAnalyzer/isOperator.js";
+import isData from "./LexicalAnalyzer/isData.js";
+import isComment from "./LexicalAnalyzer/isComment.js";
 
 const content = document.querySelector("#source-code");
 const form = document.querySelector("#form");
