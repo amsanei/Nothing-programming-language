@@ -4,6 +4,7 @@ import isSymbol from "./LexicalAnalyzer/isSymbol.js";
 import isOperator from "./LexicalAnalyzer/isOperator.js";
 import isData from "./LexicalAnalyzer/isData.js";
 import isComment from "./LexicalAnalyzer/isComment.js";
+import syntaxAnalyzer from "./SyntaxAnalyzer/syntaxAnalyzer.js";
 
 const content = document.querySelector("#source-code");
 const form = document.querySelector("#form");
@@ -65,6 +66,7 @@ function compile(e) {
         });
     });
     if (symbolTable.length > 0) renderSymbolTable(symbolTable);
+    syntaxAnalyzer(tokens);
 }
 
 function addToTable(text1, text2, style, token) {
